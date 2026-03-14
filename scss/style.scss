@@ -1,0 +1,269 @@
+$banner-dots: 4;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7f9;
+  color: #1a1a1a;
+}
+
+.top-banner {
+  position: relative;
+  overflow: hidden;
+  background: #0b5a7c;
+  color: #d9e7ee;
+}
+
+.top-banner__container,
+.navbar__container {
+  width: min(100% - 32px, 1200px);
+  margin: 0 auto;
+}
+
+.top-banner__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  text-align: center;
+}
+
+.top-banner__text {
+  max-width: 980px;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.top-banner__decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.top-banner__dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-50%);
+}
+
+@for $i from 1 through $banner-dots {
+  .top-banner__dot:nth-child(#{$i}) {
+    left: #{12% + ($i - 1) * 24%};
+    opacity: 0.18 - ($i * 0.025);
+  }
+}
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #d9e3e8;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 98px;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar__brand-icon {
+  width: 46px;
+  height: 46px;
+}
+
+.navbar__brand-text {
+  color: #0b5a7c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  gap: 28px;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.navbar__link,
+.navbar__phone {
+  color: #0b5a7c;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.navbar__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 16px 28px;
+  border-radius: 4px;
+  background: #0b5a7c;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar__link:hover,
+.navbar__phone:hover {
+  opacity: 0.72;
+}
+
+.navbar__button:hover {
+  background: #084560;
+}
+
+@media (max-width: 992px) {
+  .top-banner__container,
+  .navbar__container {
+    width: min(100% - 28px, 1200px);
+  }
+
+  .top-banner__container {
+    min-height: 60px;
+    padding: 10px 0;
+  }
+
+  .top-banner__text {
+    max-width: 760px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .navbar__container {
+    align-items: flex-start;
+    gap: 22px;
+    min-height: auto;
+    padding: 22px 0;
+  }
+
+  .navbar__brand-text {
+    font-size: 28px;
+  }
+
+  .navbar__content {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+  }
+
+  .navbar__menu {
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .navbar__actions {
+    gap: 24px;
+  }
+
+  .navbar__button {
+    min-height: 52px;
+    padding: 14px 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-banner__container {
+    min-height: 70px;
+    padding: 12px 0;
+  }
+
+  .top-banner__text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .top-banner__dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .navbar__container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 18px 0 22px;
+  }
+
+  .navbar__brand {
+    justify-content: center;
+  }
+
+  .navbar__brand-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navbar__brand-text {
+    font-size: 24px;
+  }
+
+  .navbar__content {
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .navbar__actions {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .navbar__phone {
+    text-align: center;
+  }
+
+  .navbar__button {
+    width: 100%;
+    min-height: 50px;
+    padding: 14px 18px;
+  }
+}

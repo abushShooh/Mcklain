@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7f9;
+  color: #1a1a1a;
+}
+
+.top-banner {
+  position: relative;
+  overflow: hidden;
+  background: #0b5a7c;
+  color: #d9e7ee;
+}
+
+.top-banner__container,
+.navbar__container {
+  width: min(100% - 32px, 1200px);
+  margin: 0 auto;
+}
+
+.top-banner__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  text-align: center;
+}
+
+.top-banner__text {
+  max-width: 980px;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.top-banner__decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.top-banner__dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-50%);
+}
+
+.top-banner__dot:nth-child(1) {
+  left: 12%;
+  opacity: 0.155;
+}
+
+.top-banner__dot:nth-child(2) {
+  left: 36%;
+  opacity: 0.13;
+}
+
+.top-banner__dot:nth-child(3) {
+  left: 60%;
+  opacity: 0.105;
+}
+
+.top-banner__dot:nth-child(4) {
+  left: 84%;
+  opacity: 0.08;
+}
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #d9e3e8;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+}
+
+.navbar__logo {
+  color: #0b5a7c;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 992px) {
+  .top-banner__container,
+  .navbar__container {
+    width: min(100% - 28px, 1200px);
+  }
+  .top-banner__container {
+    min-height: 60px;
+    padding: 10px 0;
+  }
+  .top-banner__text {
+    max-width: 760px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .navbar__container {
+    min-height: 64px;
+  }
+  .navbar__logo {
+    font-size: 22px;
+  }
+}
+@media (max-width: 576px) {
+  .top-banner__container {
+    min-height: 70px;
+    padding: 12px 0;
+  }
+  .top-banner__text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .top-banner__dot {
+    width: 8px;
+    height: 8px;
+  }
+  .navbar__container {
+    min-height: 58px;
+  }
+  .navbar__logo {
+    font-size: 20px;
+  }
+}
