@@ -252,22 +252,37 @@
 
     <script>
         const burger = document.querySelector('.navbar__burger');
+        const navbar = document.querySelector('.navbar');
         const navContent = document.querySelector('.navbar__content');
         const navLinks = document.querySelectorAll('.navbar__content a');
 
-        if (burger && navContent) {
+        if (burger && navContent && navbar) {
             burger.addEventListener('click', () => {
-                const isOpen = navContent.classList.toggle('is-open');
+                const isOpen = navbar.classList.toggle('is-open');
                 burger.classList.toggle('is-open', isOpen);
+                navContent.classList.toggle('is-open', isOpen);
+                burger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
                 burger.setAttribute('aria-expanded', String(isOpen));
             });
 
             navLinks.forEach((link) => {
                 link.addEventListener('click', () => {
+                    navbar.classList.remove('is-open');
                     navContent.classList.remove('is-open');
                     burger.classList.remove('is-open');
+                    burger.setAttribute('aria-label', 'Open navigation menu');
                     burger.setAttribute('aria-expanded', 'false');
                 });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 576) {
+                    navbar.classList.remove('is-open');
+                    navContent.classList.remove('is-open');
+                    burger.classList.remove('is-open');
+                    burger.setAttribute('aria-label', 'Open navigation menu');
+                    burger.setAttribute('aria-expanded', 'false');
+                }
             });
         }
     </script>
