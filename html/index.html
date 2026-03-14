@@ -24,18 +24,16 @@
     </div>
 
     <nav class="navbar">
-        <input class="navbar__toggle" type="checkbox" id="navbar-toggle">
-
         <div class="navbar__container">
             <a class="navbar__brand" href="#">
                 <img class="navbar__brand-icon" src="../photos/Logo.svg" alt="McKinley logo">
             </a>
 
-            <label class="navbar__burger" for="navbar-toggle" aria-label="Open navigation menu">
+            <button class="navbar__burger" type="button" aria-label="Open navigation menu" aria-expanded="false">
                 <span class="navbar__burger-line"></span>
                 <span class="navbar__burger-line"></span>
                 <span class="navbar__burger-line"></span>
-            </label>
+            </button>
 
             <div class="navbar__content">
                 <ul class="navbar__menu">
@@ -172,7 +170,7 @@
                     </p>
                     <a class="practice-card__link" href="#">
                         <span>Learn More</span>
-                        <span class="practice-card__arrow" aria-hidden="true">→</span>
+                        <span class="practice-card__arrow" aria-hidden="true">&rarr;</span>
                     </a>
                 </article>
 
@@ -190,7 +188,7 @@
                     </p>
                     <a class="practice-card__link" href="#">
                         <span>Learn More</span>
-                        <span class="practice-card__arrow" aria-hidden="true">→</span>
+                        <span class="practice-card__arrow" aria-hidden="true">&rarr;</span>
                     </a>
                 </article>
 
@@ -209,11 +207,50 @@
                     </p>
                     <a class="practice-card__link" href="#">
                         <span>Learn More</span>
-                        <span class="practice-card__arrow" aria-hidden="true">→</span>
+                        <span class="practice-card__arrow" aria-hidden="true">&rarr;</span>
                     </a>
                 </article>
             </div>
         </div>
     </section>
+
+    <section class="services-highlight">
+        <div class="services-highlight__container">
+            <div class="services-highlight__media reveal-up">
+                <!-- <img class="services-highlight__image" src="../photos/bgAfterCard.svg" alt="Attorney walking with briefcase"> -->
+            </div>
+
+            <div class="services-highlight__panel reveal-up">
+                <h2 class="services-highlight__title">Personalized Legal Services</h2>
+                <p class="services-highlight__text">
+                    One size does not fit all when it comes to your legal needs. We craft a team and strategy specific
+                    to your desired outcome.
+                </p>
+                <a class="services-highlight__button" href="#">About Our Firm</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const burger = document.querySelector('.navbar__burger');
+        const navContent = document.querySelector('.navbar__content');
+        const navLinks = document.querySelectorAll('.navbar__content a');
+
+        if (burger && navContent) {
+            burger.addEventListener('click', () => {
+                const isOpen = navContent.classList.toggle('is-open');
+                burger.classList.toggle('is-open', isOpen);
+                burger.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            navLinks.forEach((link) => {
+                link.addEventListener('click', () => {
+                    navContent.classList.remove('is-open');
+                    burger.classList.remove('is-open');
+                    burger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
