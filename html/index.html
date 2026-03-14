@@ -24,11 +24,18 @@
     </div>
 
     <nav class="navbar">
+        <input class="navbar__toggle" type="checkbox" id="navbar-toggle">
+
         <div class="navbar__container">
             <a class="navbar__brand" href="#">
-                <img class="navbar__brand-icon" src="../photos/Logo.svg" alt="Mckinley logo">
-                <span class="navbar__brand-text">McKinley</span>
+                <img class="navbar__brand-icon" src="../photos/Logo.svg" alt="McKinley logo">
             </a>
+
+            <label class="navbar__burger" for="navbar-toggle" aria-label="Open navigation menu">
+                <span class="navbar__burger-line"></span>
+                <span class="navbar__burger-line"></span>
+                <span class="navbar__burger-line"></span>
+            </label>
 
             <div class="navbar__content">
                 <ul class="navbar__menu">
